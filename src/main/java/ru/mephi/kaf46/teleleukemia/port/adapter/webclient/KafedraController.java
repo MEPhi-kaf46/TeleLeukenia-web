@@ -1,10 +1,10 @@
-package ru.yvzorin.someservice.port.adapter.webclient;
+package ru.mephi.kaf46.teleleukemia.port.adapter.webclient;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.yvzorin.someservice.application.userapplication.KafedraSaveRequest;
-import ru.yvzorin.someservice.application.userapplication.KafedraService;
+import ru.mephi.kaf46.teleleukemia.application.KafedraSaveRequest;
+import ru.mephi.kaf46.teleleukemia.application.KafedraService;
 
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMin;
@@ -14,12 +14,12 @@ import javax.validation.constraints.NotNull;
  * @author Yury Zorin
  */
 @RestController
-public class UserApplicationController {
+public class KafedraController {
 
     @Autowired
     private final KafedraService kafedraService;
 
-    public UserApplicationController(KafedraService kafedraService) {
+    public KafedraController(KafedraService kafedraService) {
         this.kafedraService = kafedraService;
     }
 

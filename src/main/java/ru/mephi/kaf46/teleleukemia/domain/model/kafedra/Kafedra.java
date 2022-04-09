@@ -1,4 +1,4 @@
-package ru.yvzorin.someservice.domain.model.kafedra;
+package ru.mephi.kaf46.teleleukemia.domain.model.kafedra;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 

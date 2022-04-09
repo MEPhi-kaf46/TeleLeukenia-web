@@ -1,4 +1,4 @@
-package ru.yvzorin.someservice.port.adapter.webclient;
+package ru.mephi.kaf46.teleleukemia.port.adapter.webclient;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

@@ -1,11 +1,11 @@
-package ru.yvzorin.someservice.application.userapplication;
+package ru.mephi.kaf46.teleleukemia.application;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.yvzorin.someservice.domain.model.kafedra.Kafedra;
-import ru.yvzorin.someservice.domain.model.kafedra.KafedraRepository;
+import ru.mephi.kaf46.teleleukemia.domain.model.kafedra.Kafedra;
+import ru.mephi.kaf46.teleleukemia.domain.model.kafedra.KafedraRepository;
 
 import java.util.List;
 

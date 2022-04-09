@@ -1,9 +1,9 @@
-package ru.yvzorin.someservice.application.userapplication;
+package ru.mephi.kaf46.teleleukemia.application;
 
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.Value;
-import ru.yvzorin.someservice.domain.model.kafedra.Kafedra;
+import ru.mephi.kaf46.teleleukemia.domain.model.kafedra.Kafedra;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

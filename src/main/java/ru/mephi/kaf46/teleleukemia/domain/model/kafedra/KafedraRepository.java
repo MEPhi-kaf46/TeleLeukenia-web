@@ -1,4 +1,4 @@
-package ru.yvzorin.someservice.domain.model.kafedra;
+package ru.mephi.kaf46.teleleukemia.domain.model.kafedra;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
