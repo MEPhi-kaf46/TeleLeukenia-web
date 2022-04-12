@@ -50,7 +50,7 @@ public class MainViewAppLayout extends AppLayout {
         //можно добавить так contentById.put(yourLabel, yourForm);
 
         Tabs tabs = new Tabs(kaf, main, cellsExtraction, classicMethod, neuralNetwork);
-       // setContent(chairForm); // установка дефолтной страницы - тут надо МainPage проставить тому у кого заглавная страница!
+        setContent(chairForm); // установка дефолтной страницы - тут надо МainPage проставить тому у кого заглавная страница!
         tabs.addSelectedChangeListener(event ->
                 setContent(contentById.get(event.getSelectedTab().getLabel()))
         );
