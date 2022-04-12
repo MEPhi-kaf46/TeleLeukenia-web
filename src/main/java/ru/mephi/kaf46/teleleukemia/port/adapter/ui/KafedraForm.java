@@ -1,4 +1,4 @@
-package ru.yvzorin.someservice.port.adapter.ui;
+package ru.mephi.kaf46.teleleukemia.port.adapter.ui;
 
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
@@ -7,8 +7,8 @@ import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.TextField;
-import ru.yvzorin.someservice.application.userapplication.KafedraSaveRequest;
-import ru.yvzorin.someservice.application.userapplication.KafedraService;
+import ru.mephi.kaf46.teleleukemia.application.KafedraSaveRequest;
+import ru.mephi.kaf46.teleleukemia.application.KafedraService;
 
 /**
  * @author Yury Zorin <yuri.zorin@bostongene.com>

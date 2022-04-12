@@ -1,4 +1,4 @@
-package ru.yvzorin.someservice;
+package ru.mephi.kaf46.teleleukemia;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,13 +7,12 @@ import org.springframework.data.web.config.EnableSpringDataWebSupport;
 /**
  * @author Yury Zorin
  */
-
 @EnableSpringDataWebSupport
 @SpringBootApplication
-public class SomeServiceApplication {
+public class TeleLeukemiaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SomeServiceApplication.class, args);
+        SpringApplication.run(TeleLeukemiaApplication.class, args);
     }
 
 }

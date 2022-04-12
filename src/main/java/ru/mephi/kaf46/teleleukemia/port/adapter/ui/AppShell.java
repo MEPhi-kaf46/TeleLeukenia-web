@@ -1,4 +1,4 @@
-package ru.yvzorin.someservice.port.adapter.ui;
+package ru.mephi.kaf46.teleleukemia.port.adapter.ui;
 
 import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.server.PWA;
