@@ -9,6 +9,7 @@ import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.mephi.kaf46.teleleukemia.application.KafedraService;
+import ru.mephi.kaf46.teleleukemia.application.recognitionwindow.classic.NeuralNetworkService;
 
 import java.util.Map;
 
@@ -19,9 +20,11 @@ import java.util.Map;
 public class MainViewAppLayout extends AppLayout {
 
     private final KafedraService kafedraService;
+    private final NeuralNetworkService neuralNetworkService;
 
-    public MainViewAppLayout(@Autowired KafedraService kafedraService) {
+    public MainViewAppLayout(@Autowired KafedraService kafedraService, @Autowired NeuralNetworkService neuralNetworkService) {
         this.kafedraService = kafedraService;
+        this.neuralNetworkService = neuralNetworkService;
         DrawerToggle toggle = new DrawerToggle();
 
         H1 title = new H1("TeleLeukemia web");
@@ -44,9 +47,11 @@ public class MainViewAppLayout extends AppLayout {
         Tab neuralNetwork = new Tab("Страница распознавания нейросетью");
 
         MainView chairForm = new MainView(this.kafedraService);
-
+        NeuralNetworkView secondForm = new NeuralNetworkView(this.neuralNetworkService);
         // заполняем формами по лейблу вкладки
-        Map<String, Component> contentById = Map.of(chairLabel, chairForm);
+        Map<String, Component> contentById = Map.of(chairLabel, chairForm,
+                "Страница распознавания нейросетью", secondForm);
+//        contentById.put("Страница распознавания нейросетью", secondForm);
         //можно добавить так contentById.put(yourLabel, yourForm);
 
         Tabs tabs = new Tabs(kaf, main, cellsExtraction, classicMethod, neuralNetwork);

@@ -16,4 +16,6 @@ public class ClassicRecognitionRestClient {
 
     private RestTemplate restTemplate;
     //your code
+
+
 }
