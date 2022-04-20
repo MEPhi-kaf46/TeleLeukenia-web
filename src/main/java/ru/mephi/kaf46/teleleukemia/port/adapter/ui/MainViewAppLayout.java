@@ -9,6 +9,8 @@ import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.mephi.kaf46.teleleukemia.application.KafedraService;
+import ru.mephi.kaf46.teleleukemia.port.adapter.ui.classicMethod.ClassicMethodView;
+import ru.mephi.kaf46.teleleukemia.application.ClassicMethodService;
 
 import java.util.Map;
 
@@ -19,8 +21,13 @@ import java.util.Map;
 public class MainViewAppLayout extends AppLayout {
 
     private final KafedraService kafedraService;
+    private final ClassicMethodService classicMethodService;
 
-    public MainViewAppLayout(@Autowired KafedraService kafedraService) {
+    public MainViewAppLayout(
+    		@Autowired KafedraService kafedraService,
+    		@Autowired ClassicMethodService classicMethodService
+    	) {
+    	this.classicMethodService = classicMethodService;
         this.kafedraService = kafedraService;
         DrawerToggle toggle = new DrawerToggle();
 
@@ -37,16 +44,21 @@ public class MainViewAppLayout extends AppLayout {
 
     private Tabs getTabs() {
         String chairLabel = "Добавление Кафедры (только для демо на парах)";
+        String classicMethodViewLabel = "Страница распознавания классическим методом";
         Tab kaf = new Tab(chairLabel);
         Tab main = new Tab("Основная страница");
         Tab cellsExtraction = new Tab("Страница формирования выборки");
-        Tab classicMethod = new Tab("Страница распознавания классическим методом");
+        Tab classicMethod = new Tab(classicMethodViewLabel);
         Tab neuralNetwork = new Tab("Страница распознавания нейросетью");
 
         MainView chairForm = new MainView(this.kafedraService);
+        ClassicMethodView classiMethodView = new ClassicMethodView(this.classicMethodService);
 
         // заполняем формами по лейблу вкладки
-        Map<String, Component> contentById = Map.of(chairLabel, chairForm);
+        Map<String, Component> contentById = Map.of(
+        		chairLabel, chairForm,
+        		classicMethodViewLabel, classiMethodView
+        	);
         //можно добавить так contentById.put(yourLabel, yourForm);
 
         Tabs tabs = new Tabs(kaf, main, cellsExtraction, classicMethod, neuralNetwork);
