@@ -1,18 +1,28 @@
 package ru.mephi.kaf46.teleleukemia.domain.model.NeuralNetwork;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.sun.istack.NotNull;
+import lombok.Value;
 
 import java.util.List;
-import java.util.Map;
 
+import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
+
+@Value
+@JsonAutoDetect(fieldVisibility = ANY)
 public class CellsCollection {
+    @NotNull
     private List<NeuralNetworkRecognizedCell> CurrentCellsCollection;
-    private Map<String , Integer> CellsClasses;
+    @NotNull
+    private List<ClassOfCells> CellsClasses;
 
-    public CellsCollection(List<NeuralNetworkRecognizedCell> ReceivedCellsCollection,
-                           Map<String , Integer> ReceivedCellsClasses)
+    public List<ClassOfCells> getInfoAboutClass()
     {
-        this.CellsClasses.putAll(ReceivedCellsClasses);
-        this.CurrentCellsCollection.addAll(ReceivedCellsCollection);
+        return CellsClasses;
+    }
+
+    public List<NeuralNetworkRecognizedCell> getInfoAboutCells()
+    {
+        return CurrentCellsCollection;
     }
 }

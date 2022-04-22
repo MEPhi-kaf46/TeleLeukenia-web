@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.mephi.kaf46.teleleukemia.domain.model.NeuralNetwork.CellsCollection;
 
+import java.awt.image.BufferedImage;
+
 /**
  * @author Yury Zorin
  */
@@ -24,7 +26,7 @@ public class NeuralNetworkService {
 
     public int getRecognitionStatusByRest()
     {
-        return this.client.getRecognitionStatus();
+        return this.client.getRecognitionStatus().recognitionStatus();
     }
 
     public CellsCollection getRecognitionInfoByRest()
@@ -32,7 +34,7 @@ public class NeuralNetworkService {
         return this.client.getRecognitionInfo();
     }
 
-    public byte[] getImageByRest(String Path)
+    public BufferedImage getImageByRest(String Path)
     {
         return this.client.getImage(Path);
     }

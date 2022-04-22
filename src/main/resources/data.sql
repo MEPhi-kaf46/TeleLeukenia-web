@@ -1,1 +1,1 @@
-insert into kafedras(number, year_of_establishment, zav_kaf, zam_zavkaf) values (46, 2000, 'Никитаев', 'Проничев');
+insert into kafedras(number, year_of_establishment, zav_kaf, zam_zavkaf) values (46, 2000, 'test', 'Проничев');

@@ -10,22 +10,20 @@ import java.util.Objects;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 
-@Entity
-@Table(name = "NeuralNetworkCell")
+
 @JsonAutoDetect(fieldVisibility = ANY)
 public class NeuralNetworkRecognizedCell {
 
-    @Id
-    @Column(nullable = false, updatable = false)
+
     private int numberInBunch;
 
-    @Column(nullable = false, updatable = true)
+
     private String imagePath;
 
-    @Column(nullable = false, updatable = true)
+
     private String classCode;
 
-    @Column(nullable = false, updatable = true)
+
     int recognitionStatus;
 
     public NeuralNetworkRecognizedCell(String PathToImage, int number, String ClassCode, int Status)

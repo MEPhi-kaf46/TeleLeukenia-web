@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import ru.mephi.kaf46.teleleukemia.domain.model.NeuralNetwork.CellsCollection;
 import ru.mephi.kaf46.teleleukemia.domain.model.NeuralNetwork.NeuralNetworkRecognizedCell;
 
+import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.util.Map;
 
@@ -29,7 +30,7 @@ public class NeuralNetworkRestClient {
     public NeuralNetworkRestClient()
     {
         this.restTemplate = new RestTemplateBuilder()
-            .rootUri("http://localhost:8080")
+            .rootUri("http://10.52.10.147:8080")
             .build();
     }
 
@@ -37,7 +38,7 @@ public class NeuralNetworkRestClient {
     {
         Map<String , ?> parameters = Map.of("Vasay", PathToImage);
         try {
-            ResponseEntity<String> response = this.restTemplate.postForEntity("http://localhost:8080/api/run-recognition?path={Vasay}",
+            ResponseEntity<String> response = this.restTemplate.postForEntity("http://10.52.10.142:8080/api/run-recognition?path={Vasay}",
                     null,
                     String.class,
                     parameters
@@ -53,35 +54,36 @@ public class NeuralNetworkRestClient {
 
     }
 
-    public int getRecognitionStatus()
+    public NeuralNetworkRecognizedCell getRecognitionStatus()
     {
-        ResponseEntity<NeuralNetworkRecognizedCell> response = this.restTemplate.getForEntity("api/recognition-status",
+        ResponseEntity<NeuralNetworkRecognizedCell> response = this.restTemplate.getForEntity("http://10.52.10.142:8080/api/recognition-status",
                 NeuralNetworkRecognizedCell.class);
 
         if(!response.getStatusCode().is2xxSuccessful()){
             throw new RuntimeException("Соединение не удалось "+response);
         }
 
-        return response.getBody().recognitionStatus();
+        NeuralNetworkRecognizedCell test = response.getBody();
+        return response.getBody();
     }
 
     public CellsCollection getRecognitionInfo()
     {
-        ResponseEntity<CellsCollection> response = this.restTemplate.getForEntity("api/recognition-info",
+        ResponseEntity<CellsCollection> response = this.restTemplate.getForEntity("http://10.52.10.142:8080/api/recognition-info",
                 CellsCollection.class);
 
         if(!response.getStatusCode().is2xxSuccessful()){
             throw new RuntimeException("Соединение не удалось "+response);
         }
-
+        CellsCollection test = response.getBody();
         return response.getBody();
     }
 
-    public byte[] getImage(String Path)
+    public BufferedImage getImage(String Path)
     {
         Map<String , ?> parameters = Map.of("path", Path);
-        ResponseEntity<byte[]> response = this.restTemplate.getForEntity("api/recognition-status",
-                byte[].class,
+        ResponseEntity<BufferedImage> response = this.restTemplate.getForEntity("http://10.52.10.142:8080/api/image?path={path}",
+                BufferedImage.class,
                 parameters);
 
         if(!response.getStatusCode().is2xxSuccessful()){
