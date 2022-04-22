@@ -3,4 +3,4 @@ pluginManagement {
         id 'com.vaadin' version "${vaadinVersion}"
     }
 }
-rootProject.name = 'SomeService'
+rootProject.name = 'TeleLeukemia-web'
